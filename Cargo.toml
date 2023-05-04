@@ -1,0 +1,25 @@
+[package]
+name = "muzzman-module-logger"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = 3
+overflow-checks = false
+debug = false
+strip = "debuginfo"
+lto = true
+panic = "unwind"
+debug-assertions = false
+codegen-units = 1
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+chrono = "0.4.24"
+log = { version = "0.4.17", features = ["std"] }
+muzzman-lib = {git = "https://github.com/ManStudio/MuzzMan-Lib"}
+termcolor = "1.2.0"
